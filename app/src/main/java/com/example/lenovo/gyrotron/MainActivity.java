@@ -81,12 +81,13 @@ public class MainActivity extends Activity implements SensorEventListener{
             float[] filtered_data = filt.smooth(filtered_points, SGFilter.computeSGCoefficients(3, 3, 3));
 
 
-            for(i=0;i < filtered_points.length;i++){
+            for(i = 0 ;i < filtered_points.length;i++){
                 series.appendData(new DataPoint(i,filtered_points[i]),true,100);
             }
-            for(i=0;i < filtered_data.length;i++){
+            for(i = 0 ;i < filtered_data.length;i++){
                 filtered.appendData(new DataPoint(i,filtered_data[i]),true,100);
             }
+            filtered.setColor(Color.GREEN);
             graphView.addSeries(series);
             graphView.addSeries(filtered);
             String s = "Data_Set" + temp + ".txt";
